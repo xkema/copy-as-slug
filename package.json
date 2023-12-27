@@ -1,0 +1,18 @@
+{
+  "name": "slugify-browser-extension",
+  "version": "1.0.0",
+  "description": "A Browser Extension to copy selected texts as-slug",
+  "type": "module",
+  "scripts": {
+    "build:slugify": "esbuild ./node_modules/@sindresorhus/slugify/index.js --bundle --outfile=./extension/lib/slugify-es6.mjs --format=esm"
+  },
+  "keywords": [
+    "browser-extension"
+  ],
+  "author": "Kemal Yılmaz <xkema@tutanota.com> (https://xkema.github.io/)",
+  "license": "MIT",
+  "devDependencies": {
+    "@sindresorhus/slugify": "^2.2.1",
+    "esbuild": "^0.19.10"
+  }
+}

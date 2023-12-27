@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Slugify Browser Extension",
+  "version": "1.0.0",
+  "description": "Slugify Browser Extension",
+  "icons": {
+    "48": "assets/img/icon-48.png"
+  },
+  "permissions": [
+    "contextMenus",
+    "storage"
+  ],
+  "background": {
+    "scripts": [
+      "core/background.mjs"
+    ],
+    "type": "module"
+  },
+  "options_ui": {
+    "page": "core/views/options.html",
+    "open_in_tab": true
+  }
+}

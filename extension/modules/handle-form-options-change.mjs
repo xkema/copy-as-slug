@@ -1,4 +1,4 @@
-import { setOption } from './storage.mjs';
+import { setOptions } from './storage.mjs';
 
 /**
  * Handles the "change" events of the options form elements.
@@ -11,21 +11,21 @@ const handleFormOptionsChange = async (event) => {
   let value = null;
 
   switch (event.target.name) {
-    case 'lowercase':
-    case 'decamelize':
-    case 'preserveLeadingUnderscore':
+    case 'slugify.lowercase':
+    case 'slugify.decamelize':
+    case 'slugify.preserveLeadingUnderscore':
       value = event.target.checked;
       break;
-    case 'separator':
+    case 'slugify.separator':
       value = event.target.value;
       break;
-    case 'maxSelectionLength':
+    case 'extension.maxSelectionLength':
       value = Number.parseInt(event.target.value);
       break;
   }
 
   if (value !== null && !Number.isNaN(value)) {
-    await setOption({ [`${event.target.name}`]: value });
+    await setOptions({ [`${event.target.name}`]: value });
   } else {
     console.warn(`Incoming option value (${value}) is not supported!`);
   }

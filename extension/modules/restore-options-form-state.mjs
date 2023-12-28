@@ -13,15 +13,15 @@ const restoreOptionsFormState = (optionsForm, options) => {
     const target = optionsForm.elements[name];
     // apply value assignment by the type of the option
     switch (name) {
-      case 'lowercase':
-      case 'decamelize':
-      case 'preserveLeadingUnderscore':
+      case 'slugify.lowercase':
+      case 'slugify.decamelize':
+      case 'slugify.preserveLeadingUnderscore':
         target.checked = value;
         break;
-      case 'separator':
+      case 'slugify.separator':
         target.value = value;
         break;
-      case 'maxSelectionLength':
+      case 'extension.maxSelectionLength':
         target.value = value.toString();
         break;
     }

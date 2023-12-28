@@ -10,5 +10,5 @@ document.forms.options.addEventListener('change', handleFormOptionsChange);
 
 // restore form fields with the saved options
 (async () => {
-  restoreOptionsFormState(document.forms.options, await getOptions());
+  restoreOptionsFormState(document.forms.options, await getOptions(false));
 })();

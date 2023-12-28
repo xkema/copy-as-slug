@@ -7,21 +7,7 @@ import { getOptions } from './storage.mjs';
  */
 const handleContextMenuClick = async (info) => {
   // get options for the utilities
-  const {
-    lowercase,
-    decamelize,
-    preserveLeadingUnderscore,
-    separator,
-    maxSelectionLength,
-  } = await getOptions();
-
-  // set supported slugify options
-  const slugifyOptions = {
-    'lowercase': lowercase,
-    'decamelize': decamelize,
-    'preserveLeadingUnderscore': preserveLeadingUnderscore,
-    'separator': separator,
-  };
+  const options = await getOptions(true);
 
   // get menu properties from the event info
   const { menuItemId, selectionText } = info;
@@ -29,10 +15,10 @@ const handleContextMenuClick = async (info) => {
   // apply user click to the target menu item
   switch (menuItemId) {
     case 'copy-as-slug':
-      if (selectionText.length > maxSelectionLength) {
-        console.warn(`Selection length ("${selectionText.length}") is more than "${maxSelectionLength}" characters!`);
+      if (selectionText.length > options.extension.maxSelectionLength) {
+        console.warn(`Selection length ("${selectionText.length}") is more than "${options.extension.maxSelectionLength}" characters!`);
       } else {
-        const selectionTextSlugified = slugify(selectionText, slugifyOptions);
+        const selectionTextSlugified = slugify(selectionText, options.slugify);
         navigator.clipboard.writeText(selectionTextSlugified).then(() => { });
       }
       break;

@@ -3,22 +3,14 @@
  *
  * Defaults needs to be maintained manually by adding every input in the options page.
  *
- * - options - form
- *   - slugify
- *     - `lowercase` - checkbox
- *     - `decamelize` - checkbox
- *     - `preserveLeadingUnderscore` - checkbox
- *     - `separator` - text
- *   - extension
- *     - `maxSelectionLength` - text
+ * Maintaining an object requires a higher complexity on the `StorageArea` APIs. That's why we used `.` namespaces.
  */
 const defaults = {
-  'lowercase': true,
-  'decamelize': true,
-  'preserveLeadingUnderscore': false,
-  'separator': '-',
-
-  'maxSelectionLength': 200,
+  'slugify.lowercase': true,
+  'slugify.decamelize': true,
+  'slugify.preserveLeadingUnderscore': false,
+  'slugify.separator': '-',
+  'extension.maxSelectionLength': 200,
 };
 
 /*
@@ -35,34 +27,41 @@ const defaults = {
 */
 
 /**
- * Helper for the `StorageArea.get()`
- * @param {*} keys Same with the `StorageArea` API
+ * Groups flattened extension options in the `StorageArea` to categories "slugify" and "extension".
+ *
+ * `groupName.optionName` is the `name` attribute of the form field, i.e. `name=slufigy.lowercase`.
+ * @param {boolean} grouped A `boolean` flag to read options as groups.
  * @see {@link https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage/StorageArea|StorageArea}
- * @returns {Promise} A `Promise` fulfilled with a `void` value.
+ * @returns {Promise} A `Promise` fulfilled with the desired options pattern. (grouped or flat)
  */
-const getOptions = (keys = null) => {
-  return browser.storage.local.get(keys);
+const getOptions = async (grouped = false) => {
+  const options = await browser.storage.local.get(null);
+  if (!grouped) {
+    return options;
+  } else {
+    const optionsGrouped = {
+      'slugify': {},
+      'extension': {},
+    };
+    for (const [name, value] of Object.entries(options)) {
+      const [groupName, optionName] = name.split('.');
+      optionsGrouped[groupName][optionName] = value;
+    }
+    return optionsGrouped;
+  }
 };
 
 /**
- * Helper to set single option on change
- * @param {*} option Opton to be set collected from the form
+ * Helper to set multiple options on change
+ * @param {*} options Options to be set collected from the form
  * @returns {Promise} A `Promise` fulfilled with a `void` value.
  */
-const setOption = (option) => {
-  return browser.storage.local.set(option);
-};
-
-/**
- * Helper to set default options on extension install
- * @returns {Promise} A `Promise` fulfilled with a `void` value.
- */
-const setDefaults = () => {
-  return browser.storage.local.set(defaults);
+const setOptions = (options) => {
+  return browser.storage.local.set(options);
 };
 
 export {
+  defaults,
   getOptions,
-  setOption,
-  setDefaults,
+  setOptions,
 };

@@ -1,7 +1,11 @@
-import slugify from "../lib/slugify-es6.mjs";
-import { getOptions } from "./storage.mjs";
+import slugify from '../lib/slugify-es6.mjs';
+import { getOptions } from './storage.mjs';
 
-const handleContextMenuClick = async (info, tab) => {
+/**
+ * Controls the copy clicks on context menu clicks
+ * @param {*} info Build in event info object
+ */
+const handleContextMenuClick = async (info) => {
   // get options for the utilities
   const {
     lowercase,
@@ -13,14 +17,14 @@ const handleContextMenuClick = async (info, tab) => {
 
   // set supported slugify options
   const slugifyOptions = {
-    lowercase: lowercase,
-    decamelize: decamelize,
-    preserveLeadingUnderscore: preserveLeadingUnderscore,
-    separator: separator,
+    'lowercase': lowercase,
+    'decamelize': decamelize,
+    'preserveLeadingUnderscore': preserveLeadingUnderscore,
+    'separator': separator,
   };
-  
+
   // get menu properties from the event info
-  const { menuItemId, pageUrl, selectionText } = info;
+  const { menuItemId, selectionText } = info;
 
   // apply user click to the target menu item
   switch (menuItemId) {

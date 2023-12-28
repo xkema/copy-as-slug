@@ -1,11 +1,10 @@
-import { setOption } from "./storage.mjs";
+import { setOption } from './storage.mjs';
 
 /**
  * Handles the "change" events of the options form elements.
- * 
+ *
  * Always gets a single signal from user activity, no need to worry about multiple changes on multiple fields.
- * 
- * @param {*} event 
+ * @param {*} event Standard JS event for "change".
  */
 const handleFormOptionsChange = async (event) => {
   // field value to be set

@@ -4,9 +4,9 @@
 const createContextMenu = () => {
   // main context menu item to copy as-slug
   browser.contextMenus.create({
-    id: 'copy-as-slug',
-    title: 'Copy as-slug (%s)',
-    contexts: ['selection'],
+    'id': 'copy-as-slug',
+    'title': 'Copy as-slug (%s)',
+    'contexts': ['selection'],
   });
 };
 

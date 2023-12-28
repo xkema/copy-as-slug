@@ -1,8 +1,8 @@
 /**
  * Default options for the slugify library and the extension, used both for initialization and updating options.
- * 
+ *
  * Defaults needs to be maintained manually by adding every input in the options page.
- * 
+ *
  * - options - form
  *   - slugify
  *     - `lowercase` - checkbox
@@ -13,15 +13,15 @@
  *     - `maxSelectionLength` - text
  */
 const defaults = {
-  lowercase: true,
-  decamelize: true,
-  preserveLeadingUnderscore: false,
-  separator: '-',
+  'lowercase': true,
+  'decamelize': true,
+  'preserveLeadingUnderscore': false,
+  'separator': '-',
 
-  maxSelectionLength: 200,
+  'maxSelectionLength': 200,
 };
 
-/* 
+/*
 - slugify library defaults
   - [x] separator / '-'
   - [x] lowercase / true
@@ -36,7 +36,6 @@ const defaults = {
 
 /**
  * Helper for the `StorageArea.get()`
- * 
  * @param {*} keys Same with the `StorageArea` API
  * @see {@link https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage/StorageArea|StorageArea}
  * @returns {Promise} A `Promise` fulfilled with a `void` value.
@@ -45,10 +44,19 @@ const getOptions = (keys = null) => {
   return browser.storage.local.get(keys);
 };
 
+/**
+ * Helper to set single option on change
+ * @param {*} option Opton to be set collected from the form
+ * @returns {Promise} A `Promise` fulfilled with a `void` value.
+ */
 const setOption = (option) => {
   return browser.storage.local.set(option);
 };
 
+/**
+ * Helper to set default options on extension install
+ * @returns {Promise} A `Promise` fulfilled with a `void` value.
+ */
 const setDefaults = () => {
   return browser.storage.local.set(defaults);
 };

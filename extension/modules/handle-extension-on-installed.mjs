@@ -1,5 +1,5 @@
-import { createContextMenu } from "./create-context-menu.mjs";
-import { setDefaults } from "./storage.mjs";
+import { createContextMenu } from './create-context-menu.mjs';
+import { setDefaults } from './storage.mjs';
 
 /**
  * Sets default options and creates the context menu for a single time on extension install.

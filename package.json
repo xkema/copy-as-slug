@@ -4,7 +4,8 @@
   "description": "A Browser Extension to copy selected texts as-slug",
   "type": "module",
   "scripts": {
-    "build:slugify": "esbuild ./node_modules/@sindresorhus/slugify/index.js --bundle --outfile=./extension/lib/slugify-es6.mjs --format=esm"
+    "build:slugify": "esbuild ./node_modules/@sindresorhus/slugify/index.js --bundle --outfile=./extension/lib/slugify-es6.mjs --format=esm",
+    "lint": "eslint \"**/*.mjs\""
   },
   "keywords": [
     "browser-extension"
@@ -12,7 +13,12 @@
   "author": "Kemal Yılmaz <xkema@tutanota.com> (https://xkema.github.io/)",
   "license": "MIT",
   "devDependencies": {
+    "@eslint/js": "^8.56.0",
     "@sindresorhus/slugify": "^2.2.1",
-    "esbuild": "^0.19.10"
+    "@stylistic/eslint-plugin-js": "^1.5.1",
+    "esbuild": "^0.19.10",
+    "eslint": "^8.56.0",
+    "eslint-plugin-jsdoc": "^46.9.1",
+    "globals": "^13.24.0"
   }
 }

@@ -5,8 +5,11 @@ import stylisticJs from '@stylistic/eslint-plugin-js'
 
 export default [
   {
-    files: ["**/*.mjs"],
-    ignores: ["**/lib/*.mjs"],
+    ignores: ['bin/*.mjs'], // global ignores (`bin/*.mjs` didn't work inside the cascade below)
+  },
+  {
+    files: ['**/*.mjs'],
+    ignores: ['**/lib/*.mjs'],
     languageOptions: {
       globals: {
         ...globals.webextensions,

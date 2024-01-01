@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "build:slugify": "esbuild ./node_modules/@sindresorhus/slugify/index.js --bundle --outfile=./extension/lib/slugify-es6.mjs --format=esm",
-    "lint": "eslint \"**/*.mjs\""
+    "lint": "eslint \"**/*.mjs\"",
+    "manifest": "node ./bin/replace-manifest-keys-for-chrome.mjs"
   },
   "keywords": [
     "browser-extension"

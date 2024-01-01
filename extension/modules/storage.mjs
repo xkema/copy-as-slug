@@ -11,6 +11,7 @@ const defaults = {
   'slugify.preserveLeadingUnderscore': false,
   'slugify.separator': '-',
   'extension.maxSelectionLength': 200,
+  'extension.testString': '_hello & HERE is a 🦄 and of course lotsOf ♥, Мир!',
 };
 
 /*
@@ -27,33 +28,17 @@ const defaults = {
 */
 
 /**
- * Groups flattened extension options in the `StorageArea` to categories "slugify" and "extension".
- *
- * `groupName.optionName` is the `name` attribute of the form field, i.e. `name=slufigy.lowercase`.
- * @param {boolean} grouped A `boolean` flag to read options as groups.
- * @see {@link https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage/StorageArea|StorageArea}
- * @returns {Promise} A `Promise` fulfilled with the desired options pattern. (grouped or flat)
+ * Helper to gets all the options from the `StorageArea`.
+ * @see {@link https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage/StorageArea | StorageArea}
+ * @returns {Promise} A `Promise` fulfilled with the options.
  */
-const getOptions = async (grouped = false) => {
-  const options = await browser.storage.local.get(null);
-  if (!grouped) {
-    return options;
-  } else {
-    const optionsGrouped = {
-      'slugify': {},
-      'extension': {},
-    };
-    for (const [name, value] of Object.entries(options)) {
-      const [groupName, optionName] = name.split('.');
-      optionsGrouped[groupName][optionName] = value;
-    }
-    return optionsGrouped;
-  }
+const getOptions = async () => {
+  return browser.storage.local.get(null);
 };
 
 /**
- * Helper to set multiple options on change
- * @param {*} options Options to be set collected from the form
+ * Helper to set options on change.
+ * @param {*} options Options to be set collected from the form.
  * @returns {Promise} A `Promise` fulfilled with a `void` value.
  */
 const setOptions = (options) => {

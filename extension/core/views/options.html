@@ -10,43 +10,60 @@
 </head>
 
 <body>
-  <h1>options page</h1>
-  <p>hint: press enter or focus out to save</p>
+  <header>
+    <h1>options page</h1>
+  </header>
 
-  <!--
-    Mind the `name` attributes, they are also the keys for the options storage.
-    A custom logic might apply for each. And the restore logic depends on them.
-  -->
-  <form name="options" autocomplete="off">
-    <!-- slugify options -->
-    <fieldset>
-      <legend>slugify options</legend>
-      <label>
-        lowercase
-        <input type="checkbox" name="slugify.lowercase">
-      </label>
-      <label>
-        decamelize
-        <input type="checkbox" name="slugify.decamelize">
-      </label>
-      <label>
-        preserveLeadingUnderscore
-        <input type="checkbox" name="slugify.preserveLeadingUnderscore">
-      </label>
-      <label>
-        separator
-        <input name="slugify.separator">
-      </label>
-    </fieldset>
-    <!-- extension options -->
-    <fieldset>
-      <legend>extension options</legend>
-      <label>
-        maxSelectionLength
-        <input name="extension.maxSelectionLength" inputmode="numeric" pattern="\d*">
-      </label>
-    </fieldset>
-  </form>
+  <main>
+    <section>
+      <code id="test-string-preview"></code>
+    </section>
+
+    <section>
+      <!--
+      Mind the `name` attributes, they are also the keys for the options storage.
+      A custom logic might apply for each. And the restore logic depends on them.
+      -->
+      <form name="options" autocomplete="off">
+        <!-- slugify options -->
+        <fieldset>
+          <legend>slugify options</legend>
+          <label>
+            lowercase
+            <input type="checkbox" name="slugify.lowercase">
+          </label>
+          <label>
+            decamelize
+            <input type="checkbox" name="slugify.decamelize">
+          </label>
+          <label>
+            preserveLeadingUnderscore
+            <input type="checkbox" name="slugify.preserveLeadingUnderscore">
+          </label>
+          <label>
+            separator
+            <input name="slugify.separator">
+          </label>
+        </fieldset>
+        <!-- extension options -->
+        <fieldset>
+          <legend>extension options</legend>
+          <label>
+            maxSelectionLength
+            <input name="extension.maxSelectionLength" inputmode="numeric" pattern="\d*">
+          </label>
+          <label>
+            testString
+            <input name="extension.testString">
+          </label>
+        </fieldset>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Slugify Browser Extension</p>
+  </footer>
 
   <script type="module" src="../options.mjs"></script>
 </body>

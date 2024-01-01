@@ -1,34 +1,17 @@
-import { setOptions } from './storage.mjs';
+import { translateFormDataToOptions } from './translate-form-data-to-options.mjs';
 
 /**
- * Handles the "change" events of the options form elements.
- *
- * Always gets a single signal from user activity, no need to worry about multiple changes on multiple fields.
- * @param {*} event Standard JS event for "change".
+ * Handles the "change" events of the options form elements and sends an `options-update` signal with the updates.
+ * @param {*} event Standard JavaScript event for "change".
  */
-const handleFormOptionsChange = async (event) => {
-  // field value to be set
-  let value = null;
+const handleFormOptionsChange = (event) => {
+  const options = translateFormDataToOptions(event.target, true);
 
-  switch (event.target.name) {
-    case 'slugify.lowercase':
-    case 'slugify.decamelize':
-    case 'slugify.preserveLeadingUnderscore':
-      value = event.target.checked;
-      break;
-    case 'slugify.separator':
-      value = event.target.value;
-      break;
-    case 'extension.maxSelectionLength':
-      value = Number.parseInt(event.target.value);
-      break;
-  }
-
-  if (value !== null && !Number.isNaN(value)) {
-    await setOptions({ [`${event.target.name}`]: value });
-  } else {
-    console.warn(`Incoming option value (${value}) is not supported!`);
-  }
+  // send signal to set options
+  browser.runtime.sendMessage({
+    'type': 'options-update',
+    options,
+  });
 };
 
 export { handleFormOptionsChange };

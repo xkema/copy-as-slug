@@ -27,7 +27,10 @@ const translateFormDataToOptions = (eventTarget, translateEventTargetOnly = fals
         value = target.checked;
         break;
       case 'slugify.separator':
+        value = target.value;
+        break;
       case 'extension.testString':
+        // `value` should be `target.textContent` here but `<textarea>` element doesn't update it's full changed content on the incoming event.
         value = target.value;
         break;
       case 'extension.maxSelectionLength':

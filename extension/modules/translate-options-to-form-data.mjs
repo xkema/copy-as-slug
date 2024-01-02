@@ -23,8 +23,12 @@ const translateOptionsToFormData = (options) => {
         formDataPropertyDefaults.targetAttribute = 'checked';
         break;
       case 'slugify.separator':
-      case 'extension.testString':
         // no change needed for string inputs
+        break;
+      case 'extension.testString':
+        // `targetAttribute` should be `textContent` in here but `<textarea>` element doesn't update it's full changed content on the incoming event.
+        // `value` attribute is not a part of `<textarea>` element but still works.
+        formDataPropertyDefaults.targetAttribute = 'value';
         break;
       case 'extension.maxSelectionLength':
         formDataPropertyDefaults.value = value.toString();

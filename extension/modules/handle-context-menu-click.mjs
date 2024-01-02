@@ -1,4 +1,5 @@
 import { getSlugifiedText } from './get-slugified-text.mjs';
+import { handleCopyAsSlugChromeFallback } from './handle-copy-as-slug-chrome-fallback.mjs';
 import { handleCopyAsSlug } from './handle-copy-as-slug.mjs';
 import { getOptions } from './storage.mjs';
 
@@ -20,7 +21,12 @@ const handleContextMenuClick = async (info) => {
   // apply user click to the target menu item
   switch (menuItemId) {
     case 'copy-as-slug':
-      handleCopyAsSlug(slugifiedText);
+      try {
+        handleCopyAsSlug(slugifiedText);
+      } catch (error) {
+        console.warn('Copy action has failed, trying a fallback solution with the legacy Clipboard APIs', error);
+        handleCopyAsSlugChromeFallback(slugifiedText);
+      }
       break;
   }
 };

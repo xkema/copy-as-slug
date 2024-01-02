@@ -4,11 +4,7 @@
  * @returns {*} A Promise fulfilled after clipboard updates. (whatever `navigator.clipboard.writeText` returns)
  */
 const handleCopyAsSlug = (slugifiedText) => {
-  try {
-    return navigator.clipboard.writeText(slugifiedText);
-  } catch (error) {
-    console.error(error);
-  }
+  return navigator.clipboard.writeText(slugifiedText);
 };
 
 export { handleCopyAsSlug };

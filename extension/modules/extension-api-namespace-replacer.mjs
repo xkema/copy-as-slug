@@ -1,7 +1,7 @@
 /**
  * Replaces `browser.*` namespace with `chrome.*` if there is no `browser.*` global.
  *
- * This methods needs to be called on all contexes uses these namspaces.
+ * This methods needs to be called on all contexes uses these namespaces.
  *
  * This is not a polyfill, just a name replacement.
  */

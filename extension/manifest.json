@@ -19,5 +19,10 @@
   "options_ui": {
     "page": "core/views/options.html",
     "open_in_tab": true
+  },
+  "browser_specific_settings": {
+      "gecko": {
+        "id": "slugify-browser-extension@missofis.com"
+    }
   }
 }

@@ -27,6 +27,9 @@ manifestJson.permissions = [
   "clipboardWrite",
 ];
 
+// delete `browser_specific_settings` key, it is Firefox only
+delete manifestJson.browser_specific_settings;
+
 // replace with modified manifest
 const file = resolve('extension/manifest.json');
 const data = JSON.stringify(manifestJson, null, '  ') + EOL;

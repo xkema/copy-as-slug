@@ -6,12 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../../assets/img/icon-48.png">
   <title>Options | Slugify Browser Extension</title>
+  <link rel="stylesheet" href="../../lib/mvp.css">
   <link rel="stylesheet" href="./options.css">
 </head>
 
 <body>
   <header>
-    <h1>options page</h1>
+    <h1>Extension Options</h1>
+    <p>Limited options for the <code>slugify</code> library and options for the <code>extension</code>.</p>
   </header>
 
   <main>
@@ -27,33 +29,33 @@
       <form name="options" autocomplete="off">
         <!-- slugify options -->
         <fieldset>
-          <legend>slugify options</legend>
+          <legend>Slugify Options</legend>
           <label>
-            lowercase
+            <code>lowercase</code>
             <input type="checkbox" name="slugify.lowercase">
           </label>
           <label>
-            decamelize
+            <code>decamelize</code>
             <input type="checkbox" name="slugify.decamelize">
           </label>
           <label>
-            preserveLeadingUnderscore
+            <code>preserveLeadingUnderscore</code>
             <input type="checkbox" name="slugify.preserveLeadingUnderscore">
           </label>
           <label>
-            separator
+            <code>separator</code>
             <input name="slugify.separator">
           </label>
         </fieldset>
         <!-- extension options -->
         <fieldset>
-          <legend>extension options</legend>
+          <legend>Extension Options</legend>
           <label>
-            maxSelectionLength
+            <code>maxSelectionLength</code>
             <input name="extension.maxSelectionLength" inputmode="numeric" pattern="\d*">
           </label>
           <label>
-            testString
+            <code>testString</code>
             <textarea name="extension.testString"></textarea>
           </label>
         </fieldset>
@@ -63,6 +65,7 @@
 
   <footer>
     <p>Slugify Browser Extension</p>
+    <p>This extension is built with the help of <a href="https://github.com/sindresorhus/slugify">sindresorhus/slugify</a> and <a href="https://github.com/andybrewer/mvp/" title="andybrewer/mvp: MVP.css — Minimalist classless CSS stylesheet for HTML elements">andybrewer/mvp</a>. 🙏❤️</p>
   </footer>
 
   <script type="module" src="../options.mjs"></script>

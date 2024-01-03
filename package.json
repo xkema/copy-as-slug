@@ -6,7 +6,8 @@
   "scripts": {
     "build:slugify": "esbuild ./node_modules/@sindresorhus/slugify/index.js --bundle --outfile=./extension/lib/slugify-es6.mjs --format=esm",
     "lint": "eslint \"**/*.mjs\"",
-    "manifest": "node ./bin/replace-manifest-keys-for-chrome.mjs"
+    "manifest": "node ./bin/replace-manifest-keys-for-chrome.mjs",
+    "copy:mvp.css": "node ./bin/copy-mvp-css.mjs"
   },
   "keywords": [
     "browser-extension"
@@ -20,6 +21,7 @@
     "esbuild": "^0.19.10",
     "eslint": "^8.56.0",
     "eslint-plugin-jsdoc": "^46.9.1",
-    "globals": "^13.24.0"
+    "globals": "^13.24.0",
+    "mvp.css": "^1.14.0"
   }
 }

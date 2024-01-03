@@ -1,0 +1,1 @@
+Copy as Slug is a browser extension that adds a right-click context menu item to copy selected texts as-slug on a web page.

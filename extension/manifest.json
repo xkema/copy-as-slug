@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Slugify Browser Extension",
+  "name": "Copy as Slug",
   "version": "1.0.0",
-  "description": "Slugify Browser Extension",
+  "description": "Adds a right-click context menu item to copy selected texts as-slug on a web page",
   "icons": {
     "48": "assets/img/icon-48.png"
   },
@@ -22,7 +22,7 @@
   },
   "browser_specific_settings": {
       "gecko": {
-        "id": "slugify-browser-extension@missofis.com"
+        "id": "copy-as-slug@missofis.com"
     }
   }
 }

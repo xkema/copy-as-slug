@@ -1,7 +1,7 @@
 {
-  "name": "slugify-browser-extension",
+  "name": "copy-as-slug",
   "version": "1.0.0",
-  "description": "A Browser Extension to copy selected texts as-slug",
+  "description": "A Browser Extension to copy selected texts as-slug on a web page",
   "type": "module",
   "scripts": {
     "build:slugify": "esbuild ./node_modules/@sindresorhus/slugify/index.js --bundle --outfile=./extension/lib/slugify-es6.mjs --format=esm",
@@ -18,10 +18,10 @@
   "devDependencies": {
     "@eslint/js": "^8.56.0",
     "@sindresorhus/slugify": "^2.2.1",
-    "@stylistic/eslint-plugin-js": "^1.5.1",
-    "esbuild": "^0.19.10",
+    "@stylistic/eslint-plugin-js": "^1.5.3",
+    "esbuild": "^0.19.11",
     "eslint": "^8.56.0",
-    "eslint-plugin-jsdoc": "^46.9.1",
+    "eslint-plugin-jsdoc": "^48.0.2",
     "globals": "^13.24.0",
     "mvp.css": "^1.14.0",
     "web-ext": "^7.9.0"

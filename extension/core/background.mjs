@@ -13,3 +13,6 @@ browser.runtime.onMessage.addListener(handleRuntimeMessage);
 
 // single time events to do on extension install
 browser.runtime.onInstalled.addListener(handleExtensionOnInstalled);
+
+// handle extension "uninstall" ("install" and "update" handled in )
+browser.runtime.setUninstallURL('https://github.com/xkema/copy-as-slug/issues');

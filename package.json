@@ -15,6 +15,11 @@
   ],
   "author": "Kemal Yılmaz <xkema@tutanota.com> (https://xkema.github.io/)",
   "license": "MIT",
+  "homepage": "https://github.com/xkema/copy-as-slug/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xkema/copy-as-slug.git"
+  },
   "devDependencies": {
     "@eslint/js": "^8.56.0",
     "@sindresorhus/slugify": "^2.2.1",

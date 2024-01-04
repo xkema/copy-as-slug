@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Copy as Slug",
+  "name": "Copy as-slug",
   "version": "1.0.0",
   "description": "Adds a right-click context menu item to copy selected texts as-slug on a web page",
   "icons": {
@@ -20,12 +20,11 @@
     "type": "module"
   },
   "options_ui": {
-    "page": "core/views/options.html",
-    "open_in_tab": true
+    "page": "core/views/options.html"
   },
   "browser_specific_settings": {
-      "gecko": {
-        "id": "copy-as-slug@missofis.com"
+    "gecko": {
+      "id": "copy-as-slug@missofis.com"
     }
   }
 }

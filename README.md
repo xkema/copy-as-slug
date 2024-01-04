@@ -1,6 +1,23 @@
-# Copy as Slug - Browser Extension
+# Copy as-slug - Browser Extension
 
-A Browser Extension to copy a selected text as-slug on a web page. On right-click, the extension will add `Copy as-slug` context menu item is a text is selected on the page.
+A Browser Extension to copy a selected text `as-slug` on a web page. On right-click, the extension will add `Copy as-slug` context menu item if there is a selection on the page.
+
+## Notes
+
+This extension is primarily built for the [Firefox Browser](https://www.mozilla.org/en-US/firefox/new/). It also works on Chrome Browser but is not guarranteed. (*The modern "Clipboard API" is not fully compatible with the Chrome Extensions' permission management system.*)
+
+## Permissions
+
+When installed, extension will require these permissions if needed:
+
+- `contextMenus` - To add `Copy as-slug` context menu item.
+- `storage` - To save options to the browser's extension `local`\* storage area.
+- `offscreen` - To workaround lack of "Clipboard API" support. (*only Chrome*)
+- `clipboardWrite` - To workaround lack of "Clipboard API" support. (*only Chrome*)
+
+\* You won't be able to sync extension settings across the browsers you logged in.
+
+## Developer Notes
 
 ```bash
 npm run build:slugify # to manually build slugify library to the `extension/lib/slugify-es6.mjs` as an ESM
@@ -10,11 +27,7 @@ npm run copy:mvp.css
 npm run build:firefox
 ```
 
-## Notes
-
-This extension is primarily built for the [Firefox Browser](https://www.mozilla.org/en-US/firefox/new/). It also works on Chrome Browser but is not guarranteed. (*The modern "Clipboard API" is not fully compatible with the Chrome Extensions' permission management system.*)
-
-## Folder Organization
+### Folder Organization
 
 - `bin/` - Helper utilities for development
 - `extension/` - The extension folder

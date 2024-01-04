@@ -6,12 +6,13 @@
  * Maintaining an object requires a higher complexity on the `StorageArea` APIs. That's why we used `.` namespaces.
  */
 const defaults = {
+  'slugify.separator': '-',
   'slugify.lowercase': true,
   'slugify.decamelize': true,
   'slugify.preserveLeadingUnderscore': false,
-  'slugify.separator': '-',
+  'slugify.preserveTrailingDash': false,
   'extension.maxSelectionLength': 200,
-  'extension.testString': '_hello & HERE is a 🦄 and of course lotsOf ♥, Мир!',
+  'extension.testString': '_hello & HERE is a 🦄 and of course lotsOf ♥, Мир!-',
 };
 
 /*
@@ -21,7 +22,7 @@ const defaults = {
   - [x] decamelize / true
   - [ ] customReplacements / [ ['&', ' and '], ['🦄', ' unicorn '], ['♥', ' love '] ]
   - [x] preserveLeadingUnderscore / false
-  - [ ] preserveTrailingDash / false
+  - [x] preserveTrailingDash / false
   - [ ] preserveCharacters / []
   - [ ] slugifyWithCounter
   - [ ] reset

@@ -20,6 +20,7 @@ const translateOptionsToFormData = (options) => {
       case 'slugify.lowercase':
       case 'slugify.decamelize':
       case 'slugify.preserveLeadingUnderscore':
+      case 'slugify.preserveTrailingDash':
         formDataPropertyDefaults.targetAttribute = 'checked';
         break;
       case 'slugify.separator':

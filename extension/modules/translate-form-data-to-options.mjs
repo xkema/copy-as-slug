@@ -24,6 +24,7 @@ const translateFormDataToOptions = (eventTarget, translateEventTargetOnly = fals
       case 'slugify.lowercase':
       case 'slugify.decamelize':
       case 'slugify.preserveLeadingUnderscore':
+      case 'slugify.preserveTrailingDash':
         value = target.checked;
         break;
       case 'slugify.separator':

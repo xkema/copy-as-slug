@@ -9,10 +9,11 @@ import slugify from '../lib/slugify-es6.mjs';
 const getSlugifiedText = (text, options) => {
   // extract slugify options manually
   const slugifyOptions = {
-    'decamelize': options['slugify.decamelize'],
-    'lowercase': options['slugify.lowercase'],
-    'preserveLeadingUnderscore': options['slugify.preserveLeadingUnderscore'],
     'separator': options['slugify.separator'],
+    'lowercase': options['slugify.lowercase'],
+    'decamelize': options['slugify.decamelize'],
+    'preserveLeadingUnderscore': options['slugify.preserveLeadingUnderscore'],
+    'preserveTrailingDash': options['slugify.preserveTrailingDash'],
   };
 
   // max selection length

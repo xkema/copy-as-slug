@@ -2,6 +2,11 @@
 
 A Browser Extension to copy a selected text `as-slug` on a web page. On right-click, the extension will add `Copy as-slug` context menu item if there is a selection on the page.
 
+## Store Links for Installation
+
+- [Firefox Browser Add-ons](https://addons.mozilla.org/en-GB/firefox/addon/copy-as-slug/ "Install Copy as-slug for Firefox Browser")
+- [Chrome Web Store](https://chromewebstore.google.com/detail/copy-as-slug/ddopenkhojakgncbkmkahcahmolpoegc "Install Copy as-slug for Chrome Browser")
+
 ## Notes
 
 This extension is primarily built for the [Firefox Browser](https://www.mozilla.org/en-US/firefox/new/). It also works on Chrome Browser but is not guarranteed. (*The modern "Clipboard API" is not fully compatible with the Chrome Extensions' permission management system.*)
